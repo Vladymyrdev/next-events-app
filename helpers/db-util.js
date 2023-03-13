@@ -1,9 +1,9 @@
 import { MongoClient } from 'mongodb';
 
 export async function connectDatabase() {
-  const client = await MongoClient.connect(
-    'mongodb+srv://eventsApp:x1MCzrt00gwk39c4@atlascluster.4hjfb2e.mongodb.net/?retryWrites=true&w=majority',
-  );
+  const client = await MongoClient.connect(process.env.mongodb_database, {
+    useUnifiedTopology: true,
+  });
 
   return client;
 }
