@@ -11,7 +11,6 @@ async function handler(req, res) {
 
       if (!email.includes('@') || !name || name.trim() === '' || !text || text.trim() === '') {
         res.status(422).json({ message: 'Invalid input' });
-        client.close();
         return;
       }
 
@@ -36,8 +35,6 @@ async function handler(req, res) {
     console.log(error);
     res.status(500).json({ message: error.message });
   }
-
-  client.close();
 }
 
 export default handler;

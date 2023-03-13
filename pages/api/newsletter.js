@@ -17,7 +17,6 @@ async function handler(req, res) {
       res.status(500).json({ message: error.message });
     }
 
-    client.close();
     res.status(201).json({ message: 'Signed up' });
   }
 }
